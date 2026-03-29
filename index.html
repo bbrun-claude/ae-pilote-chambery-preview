@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-École Pilote — Chambéry centre-ville depuis 1997</title>
+    <meta name="description" content="Auto-École Pilote à Chambéry, votre auto-école en centre-ville depuis 1997. Permis B, conduite accompagnée, perfectionnement. 7 rue Sainte-Barbe, 73000 Chambéry.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --rouge: #c62828;
+            --rouge-clair: #e53935;
+            --rouge-pale: #fce4ec;
+            --noir: #1a1a1a;
+            --gris: #555;
+            --gris-clair: #f7f7f7;
+            --blanc: #ffffff;
+        }
+        body { font-family: 'Open Sans', sans-serif; color: var(--noir); line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        a { color: var(--rouge); text-decoration: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* NAV */
+        .nav { background: var(--blanc); box-shadow: 0 2px 8px rgba(0,0,0,.08); position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: 1100px; margin: 0 auto; padding: .5rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { height: 44px; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        .nav-links a { font-weight: 600; font-size: .92rem; color: var(--gris); transition: color .2s; }
+        .nav-links a:hover { color: var(--rouge); }
+        .nav-cta { background: var(--rouge); color: var(--blanc) !important; padding: .5rem 1.2rem; border-radius: 6px; font-weight: 600; font-size: .92rem; transition: background .2s; }
+        .nav-cta:hover { background: var(--rouge-clair); }
+        .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: .3rem; }
+        .menu-toggle span { display: block; width: 24px; height: 2px; background: var(--noir); margin: 5px 0; transition: .3s; }
+
+        /* HERO */
+        .hero { position: relative; min-height: 520px; display: flex; align-items: center; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,26,26,.82) 0%, rgba(198,40,40,.6) 100%); }
+        .hero-content { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; color: var(--blanc); }
+        .hero-badge { display: inline-block; background: var(--rouge); padding: .3rem .9rem; border-radius: 4px; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 1rem; }
+        .hero h1 { font-size: 2.6rem; font-weight: 800; line-height: 1.15; margin-bottom: .8rem; }
+        .hero p { font-size: 1.15rem; max-width: 550px; margin-bottom: 1.8rem; opacity: .95; }
+        .btn { display: inline-block; padding: .75rem 1.8rem; border-radius: 6px; font-weight: 600; font-size: 1rem; transition: all .2s; cursor: pointer; border: none; }
+        .btn-rouge { background: var(--rouge); color: var(--blanc); }
+        .btn-rouge:hover { background: var(--rouge-clair); }
+        .btn-outline { background: transparent; color: var(--blanc); border: 2px solid var(--blanc); margin-left: .8rem; }
+        .btn-outline:hover { background: rgba(255,255,255,.12); }
+
+        /* SECTION */
+        section { padding: 4rem 1.5rem; }
+        .section-title { text-align: center; font-size: 1.8rem; color: var(--noir); margin-bottom: .5rem; }
+        .section-sub { text-align: center; color: var(--gris); max-width: 600px; margin: 0 auto 2.5rem; }
+
+        /* FORMATIONS */
+        .formations { background: var(--gris-clair); }
+        .cards { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--blanc); border-radius: 10px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,.06); transition: transform .2s; border-top: 3px solid var(--rouge); }
+        .card:hover { transform: translateY(-4px); }
+        .card-icon { font-size: 2.4rem; margin-bottom: .8rem; }
+        .card h3 { font-size: 1.05rem; margin-bottom: .5rem; color: var(--rouge); }
+        .card p { font-size: .9rem; color: var(--gris); }
+
+        /* GALERIE */
+        .galerie-row { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .galerie-row img { border-radius: 8px; width: 100%; height: 340px; object-fit: cover; }
+
+        /* ATOUTS */
+        .atouts { background: var(--rouge-pale); }
+        .atouts-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .atout { display: flex; gap: 1rem; align-items: flex-start; }
+        .atout-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: .2rem; }
+        .atout h3 { font-size: 1rem; margin-bottom: .3rem; color: var(--noir); }
+        .atout p { font-size: .88rem; color: var(--gris); }
+
+        /* CONTACT */
+        .contact { background: var(--noir); color: var(--blanc); }
+        .contact .section-title { color: var(--blanc); }
+        .contact .section-sub { color: #bbb; }
+        .contact-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+        .contact-item { display: flex; gap: .8rem; align-items: flex-start; }
+        .contact-item .ci-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .2rem; }
+        .contact-item h3 { font-size: .95rem; font-weight: 600; margin-bottom: .25rem; }
+        .contact-item p, .contact-item a { font-size: .9rem; color: #ddd; }
+        .contact-item a:hover { color: var(--blanc); }
+        .map-container { max-width: 1100px; margin: 2rem auto 0; border-radius: 8px; overflow: hidden; }
+        .map-container iframe { width: 100%; height: 300px; border: 0; }
+
+        /* FOOTER */
+        .footer { background: #111; color: #888; text-align: center; padding: 1.5rem; font-size: .82rem; }
+        .footer a { color: #aaa; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--blanc); padding: 1rem 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+            .hero h1 { font-size: 1.8rem; }
+            .hero { min-height: 400px; }
+            .btn-outline { margin-left: 0; margin-top: .5rem; }
+            .hero-buttons { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; }
+            .galerie-row { grid-template-columns: 1fr; }
+            .galerie-row img { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+    <div class="nav-inner">
+        <img src="img/logo.png" alt="Auto-École Pilote Chambéry" class="nav-logo">
+        <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#formations">Formations</a></li>
+            <li><a href="#galerie">L'auto-école</a></li>
+            <li><a href="#atouts">Nos atouts</a></li>
+            <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-bg">
+        <img src="img/photo1.jpg" alt="Façade Auto-École Pilote rue Sainte-Barbe Chambéry">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <span class="hero-badge">Depuis 1997</span>
+        <h1>Votre auto-école<br>en plein coeur de Chambéry</h1>
+        <p>Pilote Auto-École vous accompagne depuis plus de 25 ans dans l'obtention de votre permis de conduire. 7 rue Sainte-Barbe, à deux pas du centre-ville.</p>
+        <div class="hero-buttons">
+            <a href="tel:0665145553" class="btn btn-rouge">06 65 14 55 53</a>
+            <a href="#contact" class="btn btn-outline">Nous contacter</a>
+        </div>
+    </div>
+</header>
+
+<!-- FORMATIONS -->
+<section class="formations" id="formations">
+    <h2 class="section-title">Nos formations</h2>
+    <p class="section-sub">Un accompagnement personnalisé pour chaque élève, avec des moniteurs expérimentés et à l'écoute.</p>
+    <div class="cards">
+        <div class="card">
+            <div class="card-icon">&#128663;</div>
+            <h3>Permis B</h3>
+            <p>Formation complète au code de la route et à la conduite, sur véhicule récent. Formule classique ou accélérée.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">&#127941;</div>
+            <h3>Conduite accompagnée</h3>
+            <p>Dès 15 ans, la conduite accompagnée (AAC) permet d'acquérir de l'expérience en toute sécurité avec vos proches.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">&#128218;</div>
+            <h3>Code de la route</h3>
+            <p>Séances de code en salle avec correction et explications. Accès aux tests en ligne pour un entraînement illimité.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">&#9889;</div>
+            <h3>Perfectionnement</h3>
+            <p>Reprise de confiance au volant, remise à niveau après une longue interruption ou préparation aux longs trajets.</p>
+        </div>
+    </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie">
+    <h2 class="section-title">Notre auto-école</h2>
+    <p class="section-sub">Installée au 7 rue Sainte-Barbe à Chambéry, Pilote Auto-École vous accueille dans un cadre central et accessible.</p>
+    <div class="galerie-row">
+        <img src="img/photo1.jpg" alt="Devanture Auto-École Pilote, rue Sainte-Barbe, Chambéry" loading="lazy">
+        <img src="img/photo2.jpg" alt="Enseigne lumineuse Pilote Auto-École" loading="lazy">
+    </div>
+</section>
+
+<!-- ATOUTS -->
+<section class="atouts" id="atouts">
+    <h2 class="section-title">Pourquoi choisir Pilote</h2>
+    <p class="section-sub">Plus de 25 ans d'expérience au service de votre réussite.</p>
+    <div class="atouts-grid">
+        <div class="atout">
+            <div class="atout-icon">&#128205;</div>
+            <div>
+                <h3>Centre-ville de Chambéry</h3>
+                <p>Idéalement situé rue Sainte-Barbe, à quelques minutes à pied de la gare et des commerces.</p>
+            </div>
+        </div>
+        <div class="atout">
+            <div class="atout-icon">&#128101;</div>
+            <div>
+                <h3>Suivi personnalisé</h3>
+                <p>Des moniteurs attentifs qui adaptent la formation au rythme et aux besoins de chaque élève.</p>
+            </div>
+        </div>
+        <div class="atout">
+            <div class="atout-icon">&#127942;</div>
+            <div>
+                <h3>Depuis 1997</h3>
+                <p>Une auto-école de confiance avec plus de deux décennies d'expérience dans la formation à la conduite.</p>
+            </div>
+        </div>
+        <div class="atout">
+            <div class="atout-icon">&#128170;</div>
+            <div>
+                <h3>Flexibilité</h3>
+                <p>Des horaires adaptés à votre emploi du temps. Formation classique, accélérée ou conduite accompagnée.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2 class="section-title">Contactez-nous</h2>
+    <p class="section-sub">Pour toute question ou inscription, n'hésitez pas à nous contacter ou à passer directement à l'agence.</p>
+    <div class="contact-grid">
+        <div class="contact-item">
+            <div class="ci-icon">&#128205;</div>
+            <div>
+                <h3>Adresse</h3>
+                <p>7 rue Sainte-Barbe<br>73000 Chambéry</p>
+            </div>
+        </div>
+        <div class="contact-item">
+            <div class="ci-icon">&#128222;</div>
+            <div>
+                <h3>Téléphone</h3>
+                <p><a href="tel:0665145553">06 65 14 55 53</a></p>
+            </div>
+        </div>
+        <div class="contact-item">
+            <div class="ci-icon">&#9993;</div>
+            <div>
+                <h3>Email</h3>
+                <p><a href="mailto:thierrybouillet@me.com">thierrybouillet@me.com</a></p>
+            </div>
+        </div>
+        <div class="contact-item">
+            <div class="ci-icon">&#128336;</div>
+            <div>
+                <h3>Horaires</h3>
+                <p>Du lundi au samedi<br>Contactez-nous pour les créneaux</p>
+            </div>
+        </div>
+    </div>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2793.2!2d5.9138!3d45.5658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478ba855d8653dd3%3A0xd0fe9c2a6dcfcd14!2s7+Rue+Sainte-Barbe%2C+73000+Chamb%C3%A9ry!5e0!3m2!1sfr!2sfr" allowfullscreen loading="lazy" title="Auto-École Pilote Chambéry"></iframe>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>&copy; 2026 Auto-École Pilote — 7 rue Sainte-Barbe, 73000 Chambéry — SIREN 409481215</p>
+</footer>
+
+</body>
+</html>
